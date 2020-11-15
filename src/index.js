@@ -1,11 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+function RowLetter(iRow)
+{
+    return String.fromCharCode(65 + iRow);
+}
+
 class Square extends React.Component {
   render() {
     return (
       <button className="square">
-        {this.props.iRow.toString()+this.props.iCol.toString()}
+        {RowLetter(this.props.iRow)+this.props.iCol.toString()}
       </button>
     );
   }
