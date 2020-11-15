@@ -1,11 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+function RowLetter(iRow)
+{
+    return String.fromCharCode(65 + iRow);
+}
+
 class Square extends React.Component {
   render() {
     return (
       <button className="square">
-        {/* TODO */}
+        {this.props.iRow.toString()+this.props.iCol.toString()}
       </button>
     );
   }
@@ -13,31 +18,31 @@ class Square extends React.Component {
 
 class Row extends React.Component
 {
-  renderSquare(i) {
-    return <Square />;
+  renderSquare(iRow,iCol) {
+    return <Square iRow={iRow} iCol={iCol}/>;
   }
   
   render() {
     return (
         <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-          {this.renderSquare(9)}
+          {this.renderSquare(this.props.iRow,0)}
+          {this.renderSquare(this.props.iRow,1)}
+          {this.renderSquare(this.props.iRow,2)}
+          {this.renderSquare(this.props.iRow,3)}
+          {this.renderSquare(this.props.iRow,4)}
+          {this.renderSquare(this.props.iRow,5)}
+          {this.renderSquare(this.props.iRow,6)}
+          {this.renderSquare(this.props.iRow,7)}
+          {this.renderSquare(this.props.iRow,8)}
+          {this.renderSquare(this.props.iRow,9)}
         </div>
     );
   }
 }
 
 class Board extends React.Component {
-  renderRow(i) {
-    return <Row />;
+  renderRow(iRow) {
+    return <Row iRow={iRow}/>;
   }
 
   render() {
@@ -60,7 +65,7 @@ class Board extends React.Component {
 
 class Game extends React.Component {
   render() {
-    const status = 'Next player: X';
+    const status = 'Next player: Y';
     return (
       <div className="game">
               <div>
