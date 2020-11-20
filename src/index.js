@@ -1,17 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './index.css';
 
 function RowLetter(iRow)
 {
     return String.fromCharCode(65 + iRow);
 }
 
-class Square extends React.Component {
+class Cell extends React.Component {
   render() {
     return (
-      <button className="square">
-        {RowLetter(this.props.iRow)+this.props.iCol.toString()}
-      </button>
+        <button className="cell">
+          {RowLetter(this.props.iRow)+this.props.iCol.toString()}
+        </button>
     );
   }
 }
@@ -19,12 +20,13 @@ class Square extends React.Component {
 class Row extends React.Component
 {
   renderSquare(iRow,iCol) {
-    return <Square iRow={iRow} iCol={iCol}/>;
+    return <Cell iRow={iRow} iCol={iCol}/>;
   }
   
   render() {
     return (
-        <div className="board-row">
+      <div>
+        <div className="row">
           {this.renderSquare(this.props.iRow,0)}
           {this.renderSquare(this.props.iRow,1)}
           {this.renderSquare(this.props.iRow,2)}
@@ -36,6 +38,8 @@ class Row extends React.Component
           {this.renderSquare(this.props.iRow,8)}
           {this.renderSquare(this.props.iRow,9)}
         </div>
+        <div class="clr"></div>
+      </div>
     );
   }
 }
@@ -47,7 +51,7 @@ class Board extends React.Component {
 
   render() {
     return (
-        <div className="board-row">
+        <div className="board">
           {this.renderRow(0)}
           {this.renderRow(1)}
           {this.renderRow(2)}
@@ -70,10 +74,7 @@ class Game extends React.Component {
       <div className="game">
               <div>
         <div className="status">{status}</div>
-        <div className="game-board">
-          <Board />
-        </div>
-        <hr></hr>
+        <hr/>
         <div className="game-board">
           <Board />
         </div>
