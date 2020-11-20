@@ -72,12 +72,15 @@ class Game extends React.Component {
     const status = 'Next player: Y';
     return (
       <div className="game">
-              <div>
-        <div className="status">{status}</div>
-        <hr/>
-        <div className="game-board">
-          <Board />
-        </div>
+        <div>
+          <div className="status">{status}</div>
+          <hr/>
+          <div className="top-board">
+            <Board />
+          </div>
+          <div className="bottom-board">
+            <Board />
+          </div>
         </div>
         <div className="game-info">
           <div>{/* status */}</div>
