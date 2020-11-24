@@ -22,7 +22,6 @@ export class Row extends React.Component
                     {this.renderSquare(this.props.iRow,8)}
                     {this.renderSquare(this.props.iRow,9)}
                 </div>
-                <div class="clr"></div>
             </div>
         );
     }
