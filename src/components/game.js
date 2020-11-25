@@ -29,28 +29,32 @@ export class Game extends React.Component {
         };
     }
 
-    handleOpponentGuess(r,c)
+    handlePlayerShipPlacement(r,c)
     {
-
+        // contact server - seek response - this.setState
     }
 
     handlePlayerGuess(r,c)
     {
-
+        // contact server - seek response - this.setState
+        console.log('Player guessed.');
     }
 
     render() {
         const status = 'Next player: Y';
+
+        const upperBoard = this.state.upperBoard;
+        const lowerBoard = this.state.lowerBoard;
         return (
             <div className="game">
                 <div>
                     <div className="status">{status}</div>
                     <hr/>
                     <div className="upper-board">
-                        <Board />
+                        <Board artefacts={upperBoard} onClick={()=>this.handlePlayerGuess}/>
                     </div>
                     <div className="lower-board">
-                        <Board />
+                        <Board artefacts={lowerBoard} onClick={()=>this.handlePlayerShipPlacement}/>
                     </div>
                 </div>
                 <div className="game-info">
