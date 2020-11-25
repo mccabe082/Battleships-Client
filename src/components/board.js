@@ -1,29 +1,12 @@
 import React from "react";
 import { Row } from "./row";
 import { Label } from "./label";
+import { rows, columns } from "../other/config";
 
 function RowLetter(iRow)
 {
     return String.fromCharCode(65 + iRow);
 }
-
-let rows = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-let columns = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-// Player's Ship Positions
-let aircraftcarrier = Array(rows.length).fill(Array(columns.length).fill(false));
-let battleship = Array(rows.length).fill(Array(columns.length).fill(false));
-let cruiser = Array(rows.length).fill(Array(columns.length).fill(false));
-let destroyer = Array(rows.length).fill(Array(columns.length).fill(false));
-let submarine = Array(rows.length).fill(Array(columns.length).fill(false));
-
-// Player's guess pegs in upper board
-let hitsOnUpperBoard = Array(rows.length).fill(Array(columns.length).fill(false));
-let missesOnUpperBoard = Array(rows.length).fill(Array(columns.length).fill(false));
-
-// Opponent's guess pegs in lower board
-let hitsOnLowerBoard = Array(rows.length).fill(Array(columns.length).fill(false));
-let missesOnLowerBoard = Array(rows.length).fill(Array(columns.length).fill(false));
 
 export class Board extends React.Component {
     renderRow(iRow) {
