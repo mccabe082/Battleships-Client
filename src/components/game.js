@@ -2,6 +2,17 @@ import React from "react";
 import { Board } from "./board";
 import { rows, columns } from "../other/config";
 
+function create2DArray(nRow,nCol)
+{
+    let result = new Array(nRow);
+
+    for (let i = 0; i < result.length; i++) {
+        result[i] = new Array(nCol);
+    }
+    return result;
+    //return Array(rows.length).fill(Array(columns.length).fill(false));
+}
+
 export class Game extends React.Component {
 
     constructor(props) {
@@ -10,23 +21,36 @@ export class Game extends React.Component {
 
             upperBoard: {
                 // Player's pegs/guesses
-                hits: Array(rows.length).fill(Array(columns.length).fill(false)),
-                misses: Array(rows.length).fill(Array(columns.length).fill(false)),
+                hits: create2DArray(10,10),
+                misses: create2DArray(10,10),
             },
 
             lowerBoard: {
                 // Player's Ships
-                carrier: Array(rows.length).fill(Array(columns.length).fill(false)),
-                battleship: Array(rows.length).fill(Array(columns.length).fill(false)),
-                cruiser: Array(rows.length).fill(Array(columns.length).fill(false)),
-                destroyer: Array(rows.length).fill(Array(columns.length).fill(false)),
-                submarine: Array(rows.length).fill(Array(columns.length).fill(false)),
+                carrier: create2DArray(10,10),
+                battleship: create2DArray(10,10),
+                cruiser: create2DArray(10,10),
+                destroyer: create2DArray(10,10),
+                submarine: create2DArray(10,10),
 
                 // Opponent's pegs/guesses
-                hits: Array(rows.length).fill(Array(columns.length).fill(false)),
-                misses: Array(rows.length).fill(Array(columns.length).fill(false)),
+                hits: create2DArray(10,10),
+                misses: create2DArray(10,10),
             },
         };
+
+        // Todo: remove test code
+        this.state.upperBoard.hits[1][1] = true;
+        this.state.upperBoard.misses[2][2] = true;
+        this.state.lowerBoard.carrier[0][0] = true;
+        this.state.lowerBoard.battleship[2][6] = true;
+        this.state.lowerBoard.cruiser[3][1] = true;
+        this.state.lowerBoard.destroyer[4][6] = true;
+        this.state.lowerBoard.submarine[5][1] = true;
+        this.state.lowerBoard.hits[6][6] = true;
+        this.state.lowerBoard.misses[7][1] = true;
+
+        console.table(this.state.upperBoard.hits);
     }
 
     handlePlayerShipPlacement(r,c)
@@ -51,10 +75,10 @@ export class Game extends React.Component {
                     <div className="status">{status}</div>
                     <hr/>
                     <div className="upper-board">
-                        <Board artefacts={upperBoard} onClick={()=>this.handlePlayerGuess}/>
+                        <Board boardArtefacts={upperBoard} onClick={()=>this.handlePlayerGuess}/>
                     </div>
                     <div className="lower-board">
-                        <Board artefacts={lowerBoard} onClick={()=>this.handlePlayerShipPlacement}/>
+                        <Board boardArtefacts={lowerBoard} onClick={()=>this.handlePlayerShipPlacement}/>
                     </div>
                 </div>
                 <div className="game-info">
