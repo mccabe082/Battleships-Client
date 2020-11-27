@@ -51,17 +51,25 @@ export class Game extends React.Component {
         this.state.lowerBoard.misses[7][1] = true;
 
         console.table(this.state.upperBoard.hits);
+
+        this.handlePlayerGuess = this.handlePlayerGuess.bind(this);
     }
 
     handlePlayerShipPlacement(r,c)
     {
-        // contact server - seek response - this.setState
+        // Todo: contact server - seek response - this.setState
     }
 
     handlePlayerGuess(r,c)
     {
-        // contact server - seek response - this.setState
-        console.log('Player guessed.');
+        // Todo: contact server - seek response - this.setState
+
+        let temp_misses = Object.assign({},this.state.lowerBoard.misses);
+
+        // let temp_misses = this.state.lowerBoard.misses;
+        //temp_misses[r][c] = true;
+        //this.setState({lowerBoard: {misses: temp_misses}});
+        console.table(this.state.misses);
     }
 
     render() {
@@ -75,10 +83,10 @@ export class Game extends React.Component {
                     <div className="status">{status}</div>
                     <hr/>
                     <div className="upper-board">
-                        <Board boardArtefacts={upperBoard} onClick={()=>this.handlePlayerGuess}/>
+                        <Board boardArtefacts={upperBoard} onClick={this.handlePlayerGuess}/>
                     </div>
                     <div className="lower-board">
-                        <Board boardArtefacts={lowerBoard} onClick={()=>this.handlePlayerShipPlacement}/>
+                        <Board boardArtefacts={lowerBoard} onClick={this.handlePlayerShipPlacement}/>
                     </div>
                 </div>
                 <div className="game-info">

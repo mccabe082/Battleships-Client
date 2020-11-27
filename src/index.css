@@ -20,18 +20,6 @@
   justify-content: center;
 }
 
-.ship{
-  width: 30px;
-  height: 30px;
-  padding: 10px, 10px;
-  justify-content: center;
-  margin: 1px;
-  border: grey solid 1px;
-  float: left;
-  background-color: grey;
-}
-
-
 .cell{
   width: 30px;
   height: 30px;

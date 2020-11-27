@@ -1,11 +1,13 @@
 import React from "react";
 import { Peg } from "./peg";
 import { Ship } from "./ship";
-
+import PropTypes from "prop-types";
 
 export function Cell(props) {
 
-    const clickHandler = props.onClick;
+    const r = props.iRow;
+    const c = props.iCol;
+
     const hasPeg = props.cellArtefacts.hits || props.cellArtefacts.misses;
     const hasCarrier = props.cellArtefacts.carrier;
     const hasBattleship = props.cellArtefacts.battleship;
@@ -14,7 +16,7 @@ export function Cell(props) {
     const hasDestroyer = props.cellArtefacts.destroyer;
 
     return (
-        <button className="cell" onClick={()=>clickHandler}>
+        <button className="cell" onClick={()=>props.onClick(r,c)}>
             {hasCarrier ? <Ship symbol={"A"}/> : null}
             {hasBattleship ? <Ship symbol={"B"}/> : null}
             {hasCruiser ? <Ship symbol={"C"}/> : null}
@@ -23,4 +25,8 @@ export function Cell(props) {
             {hasPeg ? <Peg/> : null}
         </button>
     );
+}
+
+Cell.propTypes = {
+    onClick: PropTypes.func.isRequired,
 }

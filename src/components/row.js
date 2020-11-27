@@ -1,5 +1,7 @@
 import React from "react";
 import { Cell } from "./cell";
+import { columns } from "../other/config";
+import PropTypes from "prop-types";
 
 
 function CellArtefacts(iColumn, rowArtefacts) {
@@ -14,28 +16,34 @@ function CellArtefacts(iColumn, rowArtefacts) {
     };
 }
 
-export class Row extends React.Component
+export function Row(props)
 {
-    render() {
-        const iRow = this.props.iRow;
-        const clickHandler = this.props.onClick;
-        const rowArtefacts = this.props.rowArtefacts;
+    const iRow = props.iRow;
+    const rowArtefacts = props.rowArtefacts;
 
-        return (
-            <div>
-                <div className="row">
-                    <Cell iRow={iRow} iCol={0} cellArtefacts={CellArtefacts(0,rowArtefacts)} onClick={clickHandler}/>
-                    <Cell iRow={iRow} iCol={1} cellArtefacts={CellArtefacts(1,rowArtefacts)} onClick={clickHandler}/>
-                    <Cell iRow={iRow} iCol={2} cellArtefacts={CellArtefacts(2,rowArtefacts)} onClick={clickHandler}/>
-                    <Cell iRow={iRow} iCol={3} cellArtefacts={CellArtefacts(3,rowArtefacts)} onClick={clickHandler}/>
-                    <Cell iRow={iRow} iCol={4} cellArtefacts={CellArtefacts(4,rowArtefacts)} onClick={clickHandler}/>
-                    <Cell iRow={iRow} iCol={5} cellArtefacts={CellArtefacts(5,rowArtefacts)} onClick={clickHandler}/>
-                    <Cell iRow={iRow} iCol={6} cellArtefacts={CellArtefacts(6,rowArtefacts)} onClick={clickHandler}/>
-                    <Cell iRow={iRow} iCol={7} cellArtefacts={CellArtefacts(7,rowArtefacts)} onClick={clickHandler}/>
-                    <Cell iRow={iRow} iCol={8} cellArtefacts={CellArtefacts(8,rowArtefacts)} onClick={clickHandler}/>
-                    <Cell iRow={iRow} iCol={9} cellArtefacts={CellArtefacts(9,rowArtefacts)} onClick={clickHandler}/>
-                </div>
+    let cellComponents = [];
+    columns.forEach(function(iCol) {
+        cellComponents.push(
+            <Cell
+                key={iCol}
+                iRow={iRow}
+                iCol={iCol}
+                cellArtefacts={CellArtefacts(iCol, rowArtefacts)}
+                onClick={props.onClick}
+            />);
+    })
+
+    return (
+        <div>
+            <div className="row">
+                {cellComponents}
             </div>
-        );
-    }
+        </div>
+    );
+}
+
+
+Row.propTypes = {
+    onClick: PropTypes.func.isRequired,
+    iRow: PropTypes.number.isRequired,
 }

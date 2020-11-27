@@ -1,7 +1,8 @@
 import React from "react";
 import { Row } from "./row";
 import { Label } from "./label";
-import { rows, columns } from "../other/config";
+import {columns, rows} from '../other/config';
+import PropTypes from 'prop-types';
 
 function RowLetter(iRow)
 {
@@ -21,26 +22,34 @@ function RowArtefacts(iRow, boardArtefacts)
     };
 }
 
-export class Board extends React.Component {
-    render() {
-        const clickHandler = this.props.onClick;
-        const boardArtefacts = this.props.boardArtefacts;
+export function Board(props) {
 
-        console.log(boardArtefacts);
+    const boardArtefacts = props.boardArtefacts;
 
-        return (
-            <div className="board">
-                <Label text={" "}/>
-                {rows.map((r)=><Label text={r}/>)}
-                <div className="clr"></div>
-                {rows.map((r)=>
-                    <div>
-                        <Label text={RowLetter(r)}/>
-                        <Row iRow={r} rowArtefacts={RowArtefacts(r,boardArtefacts)} onClick={clickHandler}/>
-                        <div className="clr"></div>
-                    </div>
-                )}
-            </div>
-        );
-    }
+    let rowLabels = [<Label text={" "}/>];
+
+    rows.forEach(function(iRow){
+        rowLabels.push(
+            <Label text={iRow}/>
+        )
+    });
+
+
+    return (
+        <div className="board">
+            {rowLabels}
+            <div className="clr"></div>
+            {rows.map((r,i)=>
+                <div key={i}>
+                    <Label text={RowLetter(r)}/>
+                    <Row iRow={r} rowArtefacts={RowArtefacts(r,boardArtefacts)} onClick={props.onClick}/>
+                    <div className="clr"></div>
+                </div>
+            )}
+        </div>
+    );
+}
+
+Board.propTypes = {
+    onClick: PropTypes.func.isRequired,
 }
