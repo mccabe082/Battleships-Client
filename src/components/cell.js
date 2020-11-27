@@ -1,7 +1,6 @@
 import React from "react";
 import { Peg } from "./peg";
 import { Ship } from "./ship";
-import PropTypes from "prop-types";
 
 export function Cell(props) {
 
@@ -25,8 +24,4 @@ export function Cell(props) {
             {hasPeg ? <Peg/> : null}
         </button>
     );
-}
-
-Cell.propTypes = {
-    onClick: PropTypes.func.isRequired,
 }

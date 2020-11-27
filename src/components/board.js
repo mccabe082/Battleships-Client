@@ -2,7 +2,6 @@ import React from "react";
 import { Row } from "./row";
 import { Label } from "./label";
 import {columns, rows} from '../other/config';
-import PropTypes from 'prop-types';
 
 function RowLetter(iRow)
 {
@@ -48,8 +47,4 @@ export function Board(props) {
             )}
         </div>
     );
-}
-
-Board.propTypes = {
-    onClick: PropTypes.func.isRequired,
 }

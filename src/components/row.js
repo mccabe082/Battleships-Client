@@ -1,8 +1,6 @@
 import React from "react";
 import { Cell } from "./cell";
 import { columns } from "../other/config";
-import PropTypes from "prop-types";
-
 
 function CellArtefacts(iColumn, rowArtefacts) {
     return {
@@ -40,10 +38,4 @@ export function Row(props)
             </div>
         </div>
     );
-}
-
-
-Row.propTypes = {
-    onClick: PropTypes.func.isRequired,
-    iRow: PropTypes.number.isRequired,
 }
