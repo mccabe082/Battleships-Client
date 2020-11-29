@@ -2,14 +2,26 @@
   clear: both;
 }
 
-.label{
+.horizontal-label{
   width: 30px;
   height: 30px;
-  padding: 10px, 10px;
   margin: 1px;
   text-align: center;
   line-height: 30px;
-  float: left;
+  display: inline-block;
+}
+
+.vertical-label{
+  width: 30px;
+  height: 30px;
+  padding: 1px;
+  margin: 1px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.horizontal-layout{
+  display: flex;
 }
 
 .peg{
@@ -23,15 +35,13 @@
 .cell{
   width: 30px;
   height: 30px;
-  padding: 10px, 10px;
+  padding: 1px;
   justify-content: center;
   margin: 1px;
+  text-align: center;
+  line-height: 30px;
   border: grey solid 1px;
   float: left;
   background-color: transparent;
 }
 
-.board{
-  margin-top: 20px;
-  margin-left: 20px;
-}

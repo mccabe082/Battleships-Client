@@ -1,5 +1,5 @@
 import React from "react";
-import { Board } from "./board";
+import { BoardAnnotated } from "./board-annotated";
 import { rows, columns } from "../other/config";
 
 function create2DArray(nRow,nCol)
@@ -83,10 +83,10 @@ export class Game extends React.Component {
                     <div className="status">{status}</div>
                     <hr/>
                     <div className="upper-board">
-                        <Board boardArtefacts={upperBoard} onClick={this.handlePlayerGuess}/>
+                        <BoardAnnotated boardArtefacts={upperBoard} onClick={this.handlePlayerGuess}/>
                     </div>
                     <div className="lower-board">
-                        <Board boardArtefacts={lowerBoard} onClick={this.handlePlayerShipPlacement}/>
+                        <BoardAnnotated boardArtefacts={lowerBoard} onClick={this.handlePlayerShipPlacement}/>
                     </div>
                 </div>
                 <div className="game-info">

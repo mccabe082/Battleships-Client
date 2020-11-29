@@ -25,22 +25,10 @@ export function Board(props) {
 
     const boardArtefacts = props.boardArtefacts;
 
-    let rowLabels = [<Label text={" "}/>];
-
-    rows.forEach(function(iRow){
-        rowLabels.push(
-            <Label text={iRow}/>
-        )
-    });
-
-
     return (
         <div className="board">
-            {rowLabels}
-            <div className="clr"></div>
             {rows.map((r,i)=>
                 <div key={i}>
-                    <Label text={RowLetter(r)}/>
                     <Row iRow={r} rowArtefacts={RowArtefacts(r,boardArtefacts)} onClick={props.onClick}/>
                     <div className="clr"></div>
                 </div>
