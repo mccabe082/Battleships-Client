@@ -25,15 +25,35 @@
   display: flex;
 }
 
-.peg{
+.redPeg{
   width: 20px;
   height: 20px;
-  border-radius: 10px;
-  background-color: black;
+  padding: 1px;
   justify-content: center;
+  margin: 6px;
+  text-align: center;
+  line-height: 30px;
+  border: black solid 1px;
+  float: left;
+  background-color: red;
+  border-radius: 15px;
 }
 
-.cell{
+.whitePeg{
+  width: 20px;
+  height: 20px;
+  padding: 1px;
+  justify-content: center;
+  margin: 6px;
+  text-align: center;
+  line-height: 30px;
+  border: black solid 1px;
+  float: left;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.emptyCell{
   width: 30px;
   height: 30px;
   padding: 1px;
@@ -47,5 +67,14 @@
 }
 
 .ship{
-  margin: 0px;
+  width: 30px;
+  height: 30px;
+  padding: 1px;
+  justify-content: center;
+  margin: 1px;
+  text-align: center;
+  line-height: 30px;
+  border: black solid 1px;
+  float: left;
+  background-color: grey;
 }
