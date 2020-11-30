@@ -45,7 +45,6 @@ export class Game extends React.Component {
         this.state.lowerBoard.carrier[0][0] = true;
         this.state.lowerBoard.battleship[2][6] = true;
         this.state.lowerBoard.cruiser[3][1] = true;
-
         this.state.lowerBoard.destroyer[4][6] = true;
         this.state.lowerBoard.submarine[5][1] = true;
         this.state.lowerBoard.hits[6][6] = true;

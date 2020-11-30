@@ -76,5 +76,12 @@
   line-height: 30px;
   border: black solid 1px;
   float: left;
-  background-color: grey;
+  background-color: lightgray;
+}
+
+.nothing {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  background-color: transparent;
 }

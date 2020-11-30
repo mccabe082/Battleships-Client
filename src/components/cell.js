@@ -49,19 +49,11 @@ export function Cell(props) {
         return <Destroyer/>;
     }
 
-
     return <EmptyCell/>;
-    return (
-        <div className="cell">
-            {/*<button onClick={()=>props.onClick(r,c)}>*/}
-            {/*    {hasCarrier ? <Ship symbol={"A"}/> : null}*/}
-            {/*    {hasBattleship ? <Ship symbol={"B"}/> : null}*/}
-            {/*    {hasCruiser ? <Ship symbol={"C"}/> : null}*/}
-            {/*    {hasSubmarine ? <Ship symbol={"S"}/> : null}*/}
-            {/*    {hasDestroyer ? <Ship symbol={"D"}/> : null}*/}
-            {/*    {hasPeg ? <Peg/> : null}*/}
-            {/*</button>*/}
-        </div>
 
+    return (
+        <button className="nothing" onClick={()=>props.onClick(r,c)}>
+            <EmptyCell/>
+        </button>
     );
 }
