@@ -5,6 +5,7 @@
 .horizontal-label{
   width: 30px;
   height: 30px;
+  padding: 2px;
   margin: 1px;
   text-align: center;
   line-height: 30px;
@@ -14,6 +15,7 @@
 .vertical-label{
   width: 30px;
   height: 30px;
+  padding: 2px;
   margin: 2px;
   text-align: center;
   line-height: 30px;
