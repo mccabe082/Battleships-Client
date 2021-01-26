@@ -49,11 +49,5 @@ export function Cell(props) {
         return <Destroyer/>;
     }
 
-    return <EmptyCell/>;
-
-    return (
-        <button className="nothing" onClick={()=>props.onClick(r,c)}>
-            <EmptyCell/>
-        </button>
-    );
+    return <EmptyCell onClick={()=>props.onClick(r,c)}/>;
 }
